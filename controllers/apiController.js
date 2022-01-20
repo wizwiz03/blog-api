@@ -1,6 +1,7 @@
 const { body, validationResult } = require('express-validator');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const Admin = require('../models/admin');
 
 
 exports.posts_get = async (req, res, next) => {

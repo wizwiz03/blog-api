@@ -5,7 +5,7 @@ const logger = require('morgan');
 require('dotenv').config();
 const compression = require('compression');
 const helmet = require('helmet');
-
+const cors = require('cors');
 
 // const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
@@ -17,6 +17,7 @@ const apiRouter = require('./routes/apiRouter');
 
 
 const app = express();
+
 
 
 //Set up mongoose connection
@@ -64,6 +65,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // app.use(passport.session());
 
 
+app.use(cors());
 app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
